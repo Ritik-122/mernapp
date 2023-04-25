@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
 import {
   MDBNavbar,
   MDBContainer,
@@ -8,7 +9,8 @@ import {
   MDBNavbarLink,
   MDBNavbarToggler,
   MDBNavbarBrand,
-  MDBCollapse
+  MDBCollapse,
+  MDBBtn
 } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 
@@ -21,7 +23,7 @@ export default function Navbarr() {
     <>
      <MDBNavbar expand='lg' dark bgColor='dark'>
         <MDBContainer fluid>
-         <Link to='/'><MDBNavbarBrand >Tasty Treats</MDBNavbarBrand></Link> 
+        <MDBNavbarBrand >Tasty Treats</MDBNavbarBrand>
           <MDBNavbarToggler
             type='button'
             data-target='#navbarColor02'
@@ -35,12 +37,20 @@ export default function Navbarr() {
           <MDBCollapse show={showNavColorSecond} navbar id='navbarColor02'>
             <MDBNavbarNav classNameName='me-auto mb-2 mb-lg-0'>
               <MDBNavbarItem classNameName='active'>
-               <Link to='/'><MDBNavbarLink aria-current='page'>
+               <Link to='/'><Button variant="outline-light" size="sm" className="mx-2 my-2">
                   Home
-                </MDBNavbarLink></Link> 
+                </Button></Link> 
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <Link to='/login'><MDBNavbarLink >Login</MDBNavbarLink></Link>
+                <Link to='/login'><Button variant="outline-light" size="sm" className="mx-2 my-2">
+                 Login
+                </Button></Link>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <Link to='/login'>  <Button variant="outline-light" size="sm" className="mx-2 my-2">
+                  Home
+                </Button>
+              </Link>
               </MDBNavbarItem>
               
               
