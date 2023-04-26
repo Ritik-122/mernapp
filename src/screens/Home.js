@@ -5,7 +5,7 @@ import Card from "../Components/Card";
 import Carousel from "../Components/Carousel";
 export default function Home() {
   return (
-    <>
+    <div style={{backgroundColor:'#d0d1d2' ,color:'black'}}>
       <div>
         <Navbarr />
       </div>
@@ -24,6 +24,6 @@ export default function Home() {
       <div>
         <Footer />
       </div>
-    </>
+    </div>
   );
 }

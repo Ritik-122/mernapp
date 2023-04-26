@@ -47,8 +47,8 @@ export default function Navbarr() {
                 </Button></Link>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <Link to='/login'>  <Button variant="outline-light" size="sm" className="mx-2 my-2">
-                  Home
+                <Link to='/createuser'>  <Button variant="outline-light" size="sm" className="mx-2 my-2">
+                  SignUp
                 </Button>
               </Link>
               </MDBNavbarItem>
