@@ -1,6 +1,8 @@
 const User = require("../models/User");
 const { validationResult } = require("express-validator");
-
+const jwt=require('jsonwebtoken');
+const bcrypt=require('bcryptjs');
+const jwtSecret="Mynameiskhanmynameisritikmynameisaditya"
 const loginUser = async (req, res) => {
   const result = validationResult(req);
   if (!result.isEmpty()) {
@@ -14,10 +16,19 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ errors: "Wrong credentials" });
     }
 
-    if (req.body.password !== userData.password) {
+    const pwdCompare=await bcrypt.compare(req.body.password,userData.password)
+    if (!pwdCompare) {
       return res.status(400).json({ errors: "Wrong credentials" });
     }
-    return res.status(200).json({ success: true });
+
+    /////////////////////////////////////////////////////////jwt token/////////////////////////////
+    const data={
+      user:{
+        id:userData.id
+      }
+    }
+    const authToken=jwt.sign(data,jwtSecret)
+    return res.status(200).json({ success: true,authToken:authToken });
   } catch (error) {
     console.log(error);
     res.json({ success: false });

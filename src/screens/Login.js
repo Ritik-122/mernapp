@@ -40,6 +40,7 @@ const handleSubmit=async(e)=>{
   }
   
   if(json.success){
+    localStorage.setItem('authToken',json.authToken);
     navigate('/')
   }
   
@@ -47,9 +48,9 @@ const handleSubmit=async(e)=>{
 
 }
   return (
-    <> <MDBContainer fluid>
+    <div > <MDBContainer fluid>
     <MDBCard className="text-black m-5" style={{ borderRadius: "25px" }}>
-      <MDBCardBody>
+      <MDBCardBody >
         <form onSubmit={handleSubmit}>
           <MDBRow>
             <MDBCol
@@ -113,6 +114,6 @@ const handleSubmit=async(e)=>{
       </MDBCardBody>
     </MDBCard>
   </MDBContainer>
-</>
+</div>
   )
 }
